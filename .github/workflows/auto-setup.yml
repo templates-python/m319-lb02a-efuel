@@ -1,0 +1,38 @@
+name: automatic setup test data
+
+on: [push]
+
+env:
+  DEVOPS_DIR: devops
+  GHSECRET: ${{ secrets.GITHUB_TOKEN }}
+  TARGET_REPO: ${{ github.repository }}
+  SCRIPT_REPO: BZZ-Commons/set-testdata
+  DATA_PATH: "https://it.bzz.ch/wikiV2/_media/testdata/m319_lb2_ix23.csv"
+  TEMPLATE_REPO: "BZZ-2023/m319-lb02-echarge"
+
+jobs:
+  show-actor:
+    name: show-actor
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: echo ${GITHUB_ACTOR}
+  setup-testdata:
+    if: ${{ contains(github.actor, 'classroom') }}
+    permissions: write-all
+    name: Setup test data
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyGithub
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Check-out the TestData Repo
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ env.SCRIPT_REPO }}
+          path: ${{ env.DEVOPS_DIR }}
+      - name: Copy the test data
+        run: python ${{ env.DEVOPS_DIR }}/main.py
+        shell: sh
