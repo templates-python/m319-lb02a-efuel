@@ -7,8 +7,8 @@ env:
   GHSECRET: ${{ secrets.GITHUB_TOKEN }}
   TARGET_REPO: ${{ github.repository }}
   SCRIPT_REPO: BZZ-Commons/set-testdata
-  DATA_PATH: "https://it.bzz.ch/wikiV2/_media/testdata/m319_lb2_ix23.csv"
-  TEMPLATE_REPO: "templates-python/m319-lb02-echarge"
+  DATA_PATH: "https://it.bzz.ch/wikiV2/_media/testdata/m319_lb2_ix23_np.csv"
+  TEMPLATE_REPO: "BZZ-2023/m319-lb02-efuel"
 
 jobs:
   setup-testdata:
