@@ -8,7 +8,7 @@ env:
   TARGET_REPO: ${{ github.repository }}
   SCRIPT_REPO: BZZ-Commons/set-testdata
   DATA_PATH: "https://it.bzz.ch/wikiV2/_media/testdata/m319_lb2_ix23_np.csv"
-  TEMPLATE_REPO: "BZZ-2023/m319-lb02-efuel"
+  TEMPLATE_REPO: "BZZ-2023/m319-lb02a-efuel"
 
 jobs:
   show-actor:
