@@ -34,7 +34,7 @@ def read_float():
     return 13.79
 
 
-def read_datetime():
+def read_timestamp():
     return '01.01.2099 00:01'
 
 
