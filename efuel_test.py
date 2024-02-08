@@ -317,32 +317,32 @@ def test_read_float3(monkeypatch, capsys):
             'Formal falsche Werte werden nicht abgefangen. Dieser Test funktioniert nur für die erweiterte Version')
 
 
-def test_read_datetime1(monkeypatch, capsys):
+def test_read_timestamp1(monkeypatch, capsys):
     inputs = iter(['05.01.2023 13:37'])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
-    timestamp = efuel.read_datetime('')
+    timestamp = efuel.read_timestamp('')
     if isinstance(timestamp, str):
         assert timestamp == '05.01.2023 13:37'
     else:
         assert timestamp == datetime.strptime('05.01.2023 13:37', '%d.%m.%Y %H:%M')
 
 
-def test_read_datetime2(monkeypatch, capsys):
+def test_read_timestamp2(monkeypatch, capsys):
     try:
         inputs = iter(['05.01.2023 1a:05', '06.01.2023 13:10'])
         monkeypatch.setattr('builtins.input', lambda _: next(inputs))
-        timestamp = efuel.read_datetime('')
+        timestamp = efuel.read_timestamp('')
         assert timestamp == datetime.strptime('06.01.2023 13:10', '%d.%m.%Y %H:%M')
     except ValueError:
         pytest.fail(
             'Formal falsche Werte werden nicht abgefangen. Dieser Test funktioniert nur für die erweiterte Version')
 
 
-def test_read_datetime3(monkeypatch, capsys):
+def test_read_timestamp3(monkeypatch, capsys):
     try:
         inputs = iter(['05.01.2023 1a:05', '06.01.2023 13:10'])
         monkeypatch.setattr('builtins.input', lambda _: next(inputs))
-        efuel.read_datetime('')
+        efuel.read_timesstamp('')
         captured = capsys.readouterr()
         assert captured.out == 'Geben Sie ein gültiges Datum/Uhrzeit ein\n'
     except ValueError:
