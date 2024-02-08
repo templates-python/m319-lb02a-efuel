@@ -181,7 +181,7 @@ def test_show_balance1(monkeypatch, capsys, collection, attributes, test_values)
                  '{total:<20}\tCHF {amount2:.2f}\n' \
             .format(
             sign='-',
-            total='Total:',
+            total='Summe:',
             amount0=cost0,
             amount1=cost1,
             amount2=(cost0 + cost1)
@@ -200,7 +200,7 @@ def test_show_balance1(monkeypatch, capsys, collection, attributes, test_values)
             .format(
             client=test_values['client2'],
             sign='-',
-            total='Total:',
+            total='Summe:',
             amount0=cost0,
             amount1=cost1,
             amount2=(cost0 + cost1)
@@ -217,7 +217,7 @@ def test_show_balance1(monkeypatch, capsys, collection, attributes, test_values)
                  '{total:<20}\tCHF {amount2:.2f}\n' \
             .format(
             sign='-',
-            total='Total:',
+            total='Summe:',
             amount0=cost0,
             amount1=cost1,
             amount2=(cost0 + cost1)
@@ -267,7 +267,7 @@ def test_show_balance2(monkeypatch, capsys, collection, test_values):
              '{total:<20}\tCHF {amount3:.2f}\n' \
         .format(
         sign='-',
-        total='Total:',
+        total='Summe:',
         client1=test_values['client1'],
         client2=test_values['client2'],
         amount0=cost0,
